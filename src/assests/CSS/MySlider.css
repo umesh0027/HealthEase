@@ -1,0 +1,38 @@
+.slick-dots {
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: flex !important;
+    
+    justify-content: center;
+    /* border: 1px solid blue; */
+  
+  }
+  .slick-dots li {
+    margin: 0 50px;
+  }
+  .slick-dots li button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0 50px;
+  
+  }
+  .slick-dots li button:before {
+    display: none;
+  }
+  .slick-dots li.slick-active button {
+    background-color: #000;
+  }
+
+
+  /* for award */
+  
+  /* this is use for gaping between cards and this property comes with slick crousel */
+  .slick-slide>div{
+    margin:0 10px;
+  }

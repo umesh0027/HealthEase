@@ -1,0 +1,165 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.About-bg{
+    background-image: url(../../assests/WeCare-main/WeCare\ Img//about/aboutbg.jpg) ;
+    /* width: 100%;
+    height: 80vh; */
+    background-position: center;
+    background-size: cover;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    /* border: 2px solid red; */
+    
+}
+.About-bg h1{
+    color: white;
+    /* margin-top: -110px; */
+    font-family:'Poppins', sans-serif;
+    font-weight: 700;
+}
+.para{
+    color: white;
+    /* margin-top: -110px; */
+    font-family:'Poppins', sans-serif;
+    font-weight: 600;
+    margin: 0 50px;
+    padding: 10px;
+    /* padding: 100px; */
+}
+
+.About-container{
+   
+    background-color: whitesmoke;
+   
+}
+.About-container-left{
+   
+  
+   border-radius: 14px;
+ 
+}
+.About-container-left img{
+    /* width: 100%;
+    height: 100%; */
+    border-radius: 14px;
+}
+
+.About-container-right h2{
+   font-weight: 700;
+   font-size: 26px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   margin-top: 10px;
+}
+.About-container-right p{
+   padding: 0 10px;
+    font-size: 14px;
+    text-align: left;
+
+}
+
+
+
+.About-awards{
+    margin-top: 20px;
+}
+
+
+/* About growth */
+
+.Aboutcontainer1{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid red; */ 
+}
+.Aboutcontainer2{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    width: 100%;
+    /* height: 100vh; */
+    background-color: whitesmoke;
+    background-color: rgba(128, 128, 128, 0.13);
+
+}
+.Aboutcontainer2 h1{
+    /* border: 1px solid red; */
+    text-align: center;
+    color:#000814;
+    margin-top: 10px;
+}
+.Aboutcontainer1-growth{
+    /* border: 2px solid #008000; */
+      /* margin: 40px 60px; */
+    width: 90%;
+    border-radius: 23px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: 0 0 62px #ece8e8;
+
+}
+.About-card{
+       width: 50%;
+       /* border: 1px solid blue; */
+}
+.About-card img{
+    width: 100%;
+    height: 350px;
+    border-radius: 23px 0 0 23px; 
+}
+.About-content{
+    background-color: white;
+    border-radius: 0px 23px 23px 0;
+    width: 50%;
+   justify-content: center;
+    text-align: center;
+}
+.About-content h2{
+    /* font-size: 34px;
+    font-weight: 600; */
+    color: red;
+    cursor: pointer;
+}
+
+.About-content h3{
+    font-weight: 700;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 10px;
+    color: rgba(128, 128, 128, 0.799);
+}
+.About-content p{
+   
+    color: rgba(128, 128, 128, 0.717);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

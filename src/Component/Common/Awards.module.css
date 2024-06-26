@@ -1,0 +1,81 @@
+
+
+body{
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+}
+
+.awards h1{
+ color: rgb(250, 235, 215);
+ text-align: center;
+ margin-top: 4px;
+ margin-bottom: 10px;
+ 
+}
+
+  .Award-card {
+    position: relative;
+    width: 100vw;
+    /* max-width: 400px;
+    max-height: 550px; */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 32px;
+    text-align: center;
+   cursor:pointer;
+   margin: 0 4px;
+    
+  }
+
+  
+  .leafleft,
+  .leafRight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .leafleft {
+    left: 2px;
+  }
+  
+  .leafRight {
+    right: 2px;
+  }
+  
+  .Award-card .date {
+    margin-bottom: 16px;
+  }
+  
+  .Award-card .date h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .Award-card .title {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+  }
+  
+  .Award-card .description {
+    margin-bottom: 32px;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+  }
+.slider{
+  margin: 0 8px;
+}
+  
+
+

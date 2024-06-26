@@ -1,0 +1,27 @@
+
+ /* Common styles for hero sections */
+.hero-section, .hero-section1 {
+   width: 100%;
+   background-position: center;
+   background-size: cover;
+}
+
+/* Styles for hero section on homepage */
+.hero-section {
+   height: 80vh;
+   background-image: url(../../assests/WeCare-main/WeCare\ Img/homepagebgg.png);
+   
+}
+
+/* Styles for hero section on service page */
+.hero-section1 {
+   /* height: 100vh; */
+   background-image: url(../WeCare-main/WeCare\ Img/Services/servicebg1.jpg);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   justify-content: center;
+   background-repeat: no-repeat;
+}
+
