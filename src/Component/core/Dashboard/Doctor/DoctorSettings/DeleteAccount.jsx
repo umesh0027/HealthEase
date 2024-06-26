@@ -27,8 +27,8 @@ export default function DeleteAccount() {
           <h2 className="text-lg font-semibold text-pink-600">
             Delete Account
           </h2>
-          <div className="w-3/5 text-richblack-700">
-            <p>Would you like to delete account?</p>
+          <div className=" w-full lg:w-3/5 text-richblack-700">
+            <h1>Would you like to delete account?</h1>
             <p>
               This account may contain Your Payment Details. Deleting your account is
               permanent and will remove all the contain associated with it.
@@ -36,7 +36,7 @@ export default function DeleteAccount() {
           </div>
           <button
             type="button"
-            className="w-fit cursor-pointer italic text-blue-300"
+            className="w-fit cursor-pointer italic text-blue-300  hover:text-pink-500"
             onClick={handleDeleteAccount}
           >
             I want to delete my account.
