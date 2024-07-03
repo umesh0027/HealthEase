@@ -67,7 +67,7 @@ exports.paymentSuccessEmail = (name, amount,  paymentId) => {
       
       <body>
           <div class="container">
-              <a href=""><img class="logo" src=""
+              <a href="https://health-ease-eight.vercel.app/"><img class="logo" src="https://i.ibb.co/gWBtQm0/Health-Ease-Logo.png"
                       alt="Health Ease"></a>
               <div class="message">Appoinment Payment Confirmation</div>
               <div class="body">
