@@ -35,6 +35,7 @@ const NavBar = () => {
               <NavItem to="/services" label="Services" matchRoute={matchRoute} />
               <NavItem to="/about" label="About Us" matchRoute={matchRoute} />
               <NavItem to="/blogs" label="Blogs" matchRoute={matchRoute} />
+              <NavItem to="/doctors" label="Doctors" matchRoute={matchRoute} />
               <NavItem to="/contact" label="Contact Us" matchRoute={matchRoute} />
               {token !== null ? (
                 <NavItem to="/dashboard/my-profile" label="Book An Appointment" matchRoute={matchRoute} icon={medicalappoinment} />
@@ -60,6 +61,7 @@ const NavBar = () => {
               <NavItem to="/services" label="Services" matchRoute={matchRoute} />
               <NavItem to="/about" label="About Us" matchRoute={matchRoute} />
               <NavItem to="/blogs" label="Blogs" matchRoute={matchRoute} />
+              <NavItem to="/doctors" label="Doctors" matchRoute={matchRoute} />
               <NavItem to="/contact" label="Contact Us" matchRoute={matchRoute} />
               {token !== null ? (
                 <NavItem to="/dashboard/my-profile" label="Book An Appointment" matchRoute={matchRoute} icon={medicalappoinment} />
