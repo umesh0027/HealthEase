@@ -37,7 +37,7 @@ function UpdatePassword() {
   return (
   <>
      <NavBar/>
-      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+      <div className="grid min-h-[calc(100vh] place-items-center">
      
       {loading ? (
         <div className="spinner"></div>
@@ -47,7 +47,7 @@ function UpdatePassword() {
             Choose new password
           </h1>
           <p className="my-4 text-[1.125rem] leading-[1.625rem] text-richblack-400">
-            Almost done. Enter your new password and youre all set.
+            Almost done. Enter your new password and your all set.
           </p>
           <form onSubmit={handleOnSubmit}>
             <label className="relative">
