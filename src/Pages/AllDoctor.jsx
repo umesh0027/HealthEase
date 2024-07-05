@@ -28,7 +28,7 @@ const DoctorList = () => {
      <div className=" mx-auto bg-blue-150">
       <h2 className="text-3xl font-semibold mb-8 text-center p-4 text-white">Our Doctors</h2>
       {loading ? (
-          <div className="spinner"></div>
+          <div className="spinner items-center"></div>
       ) : (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-10 p-4">
