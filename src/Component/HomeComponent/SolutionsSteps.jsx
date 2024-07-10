@@ -52,6 +52,7 @@ const GridItem = styled.div`
 
   &:hover {
     transform: translateY(-15px);
+     background-color: #0A5A72;
   }
 `;
 
