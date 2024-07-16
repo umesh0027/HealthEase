@@ -67,7 +67,7 @@ const BlogList = () => {
           </div>
         </div>
     
-        <div className='w-full md:w-3/4 bg-blue-150'>
+        <div className='w-full container h-full md:w-3/4 bg-blue-150'>
           {/* Render filtered blogs */}
           <div className="container mx-auto py-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10 mx-10">
