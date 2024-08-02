@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import NavBar from '../../Component/Common/NavBar';
 import "../../assests/CSS/Home.css"
 import Footer from '../../Component/Common/Footer';
-
+import { useSelector } from 'react-redux';
 const ServicePage = () => {
   const [services, setServices] = useState([]);
   const[readmore , setReadmore]=useState(false);
