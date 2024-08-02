@@ -17,6 +17,8 @@ const SliderHome = () => {
     arrows: true,
     centerMode: true,
     centerPadding: 0,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 768,
