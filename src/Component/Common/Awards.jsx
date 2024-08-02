@@ -16,6 +16,8 @@ const Awards = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 640, // Adjust breakpoint according to your preference
