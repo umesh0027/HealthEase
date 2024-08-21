@@ -31,7 +31,7 @@ const NewsDetailsPage = () => {
 
 
   if (!eventDetails) {
-    return <div className='flex justify-center items-center text-4xl'>Loading...</div>;
+    return <div className='flex justify-center items-center text-4xl'> <div className="spinner items-center"></div></div>;
   }
 
   return (
