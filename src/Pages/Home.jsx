@@ -14,6 +14,7 @@ import HomeCircles from '../Component/HomeComponent/HomeCircle';
 import { TypeAnimation } from "react-type-animation";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const Home = () => {
    const {  loading } = useSelector((state) => state.doctors); 
   return (
