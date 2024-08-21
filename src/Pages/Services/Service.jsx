@@ -11,7 +11,7 @@ const ServicePage = () => {
   const [showAll, setShowAll] = useState(false);
   const initialCardLimit = 6;
 
-const {  loading } = useSelector((state) => state.auth);
+const {  loading } = useSelector((state) => state.doctors);
   function readmoreHandler(){
       setReadmore(!readmore);
   }
