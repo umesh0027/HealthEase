@@ -30,7 +30,7 @@ const Home = () => {
 </div>
 
 {/* slider-section */}
-<div className='absolute left-1/2 md:bottom-[104px]  bottom-[76px] lg:bottom-[30px] w-3/4 mx-auto transform -translate-x-1/2  border-slate-900 '>
+<div className='absolute left-1/2 md:bottom-[104px]  bottom-[40px] lg:bottom-[30px] w-3/4 mx-auto transform -translate-x-1/2  border-slate-900 '>
   <SliderHome/>
 </div>
 
