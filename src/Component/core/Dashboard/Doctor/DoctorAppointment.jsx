@@ -148,10 +148,10 @@ const DoctorDashboard = () => {
                 <th className="border-b-2 border-gray-400 px-4 py-2">Date</th>
                 <th className="border-b-2 border-gray-400 px-4 py-2">Time</th>
                 <th className="border-b-2 border-gray-400 px-4 py-2">Status</th>
-                <th className="border-b-2 border-gray-400 px-4 py-2">Actions</th>
+{/*                 <th className="border-b-2 border-gray-400 px-4 py-2">Actions</th> */}
                 <th className="border-b-2 border-gray-400 px-4 py-2">Reports</th>
                 <th className="border-b-2 border-gray-400 px-4 py-2">Payment Status</th>
-                <th className="border-b-2 border-gray-400 px-4 py-2">Payment Action</th>
+{/*                 <th className="border-b-2 border-gray-400 px-4 py-2">Payment Action</th> */}
               </tr>
             </thead>
             {/* Table body */}
@@ -184,13 +184,13 @@ const DoctorDashboard = () => {
                     <button className={`text-center border-gray-300 px-4 py-2 mt-1 mb-1 rounded-md ${getStatusColor(appointment.status)}`}>{appointment.status}</button>
                   </td>
                   {/* Status Change */}
-                  <td className="border-b text-center border-gray-300 px-4 py-2">
+{/*                   <td className="border-b text-center border-gray-300 px-4 py-2">
                     <select className="px-2 py-1 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 text-center text-richblack-800" onChange={(e) => handleStatusChange(appointment._id, e.target.value)}>
                       <option value="Pending">Pending</option>
                       <option value="Confirmed">Confirmed</option>
                       <option value="Cancelled">Cancelled</option>
                     </select>
-                  </td>
+                  </td> */}
                   {/* Create Report */}
                   <td className="border-b text-center border-gray-300 px-4 py-2">
                     <button onClick={() => handleCreateReport(appointment.patient._id)} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Create Report</button>
@@ -205,18 +205,18 @@ const DoctorDashboard = () => {
                   </td> */}
 
       <td className='border-b'>
-                    <button className={`text-center border-gray-300 px-4 py-2 mt-1 mb-1 rounded-md ${getStatusColors(appointment.paymentStatus)}`}>{appointment.paymentStatus}</button>
+                    <button className={`text-center border-gray-300 px-4 py-2 mt-1 ml-8 mb-1 rounded-md ${getStatusColors(appointment.paymentStatus)}`}>{appointment.paymentStatus}</button>
                   </td>
       <td className="border-b text-center border-gray-300 px-4 py-2">
         {/* Dropdown for updating payment status */}
-        <select
+{/*         <select
           className="px-2 py-1 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 text-center text-richblack-800"
           onChange={(e) => handleStatusChange(appointment._id, appointment.status, e.target.value)}
         >
           <option value="Pending">Pending</option>
           <option value="Paid">Paid</option>
           <option value="Failed">Failed</option>
-        </select>
+        </select> */}
       </td>
                 </tr>
               ))}
