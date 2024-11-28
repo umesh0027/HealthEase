@@ -3,6 +3,7 @@ const Report = require('../models/Report');
 const Doctor = require('../models/doctor');
 const User = require("../models/User")
 const Patient = require("../models/patient");
+const PDFDocument = require('pdfkit');
 exports.createReport = async (req, res) => {
     try {
         // Check if the user is authenticated
@@ -132,6 +133,30 @@ exports.updateReport = async (req, res) => {
 
 
 // Controller function to handle report download
+// exports.downloadReport = async (req, res) => {
+//     try {
+//       const report = await Report.findById(req.params.reportId);
+  
+//       if (!report) {
+//         return res.status(404).json({ success: false, message: 'Report not found' });
+//       }
+  
+//       // Here you would typically fetch the report data from your database or file storage
+//       // For demonstration purposes, let's assume the report data is stored as a string
+//       const reportData = `Patient: ${report.patient}\nDoctor: ${report.doctor}\nDetails: ${report.details}\nDate: ${report.date}`;
+  
+//       // Set the response headers for file download
+//       res.setHeader('Content-disposition', 'attachment; filename=report.txt');
+//       res.setHeader('Content-type', 'text/plain');
+  
+//       // Send the report data as the response
+//       res.send(reportData);
+//     } catch (error) {
+//       console.error('Error downloading report:', error);
+//       res.status(500).json({ success: false, message: 'Internal Server Error' });
+//     }
+//   };
+
 exports.downloadReport = async (req, res) => {
     try {
       const report = await Report.findById(req.params.reportId);
@@ -140,16 +165,31 @@ exports.downloadReport = async (req, res) => {
         return res.status(404).json({ success: false, message: 'Report not found' });
       }
   
-      // Here you would typically fetch the report data from your database or file storage
-      // For demonstration purposes, let's assume the report data is stored as a string
-      const reportData = `Patient: ${report.patient}\nDoctor: ${report.doctor}\nDetails: ${report.details}\nDate: ${report.date}`;
+      // Create a new PDF document
+      const doc = new PDFDocument();
   
       // Set the response headers for file download
-      res.setHeader('Content-disposition', 'attachment; filename=report.txt');
-      res.setHeader('Content-type', 'text/plain');
+      res.setHeader('Content-disposition', 'attachment; filename=report.pdf');
+      res.setHeader('Content-type', 'application/pdf');
   
-      // Send the report data as the response
-      res.send(reportData);
+      // Pipe the PDF to the response
+      doc.pipe(res);
+  
+      // Add content to the PDF
+      doc
+        .fontSize(20)
+        .text('Health Ease Report', { align: 'center' })
+        .moveDown();
+  
+      doc
+        .fontSize(14)
+        .text(`Patient: ${report.patient}`, { lineGap: 10 })
+        .text(`Doctor: ${report.doctor}`, { lineGap: 10 })
+        .text(`Details: ${report.details}`, { lineGap: 10 })
+        .text(`Date: ${new Date(report.date).toLocaleDateString()}`, { lineGap: 10 });
+  
+      // Finalize the PDF and end the stream
+      doc.end();
     } catch (error) {
       console.error('Error downloading report:', error);
       res.status(500).json({ success: false, message: 'Internal Server Error' });
