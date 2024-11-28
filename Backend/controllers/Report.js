@@ -34,7 +34,7 @@ exports.createReport = async (req, res) => {
 
         // Create a new report with the patient, doctor, and details
         const { patient, details } = req.body;
-        const newReport = new Report({ patient, doctor: doctor._id, details,appointmentId });
+        const newReport = new Report({ patient, doctor: doctor._id, details });
         console.log("newreport" ,newReport)
         await newReport.save();
 
