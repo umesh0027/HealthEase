@@ -212,7 +212,7 @@ exports.updateAppointmentStatus = async (req, res) => {
     const emailBody = `Your appointment status has been : ${status}`;
    
     if (patientEmail) {
-      await mailSender(patientEmail, emailTitle, emailBody, paymentLink);
+      await mailSender(patientEmail, emailTitle, emailBody);
     }
       res.status(200).json({ success: true, appointment });
   } catch (error) {
