@@ -132,7 +132,7 @@ exports.updateReport = async (req, res) => {
 
 
 
-Controller function to handle report download
+// Controller function to handle report download
 exports.downloadReport = async (req, res) => {
     try {
       const report = await Report.findById(req.params.reportId);
