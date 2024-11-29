@@ -47,7 +47,10 @@ const {  loading } = useSelector((state) => state.doctors);
      <div className="container h-full w-full bg-blue-250  " >
      <h2 className="text-2xl font-bold  text-center py-10 ">Our Services</h2>
  {loading ? (
+        // <div className="spinner"></div>
+       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
         <div className="spinner"></div>
+      </div>
       ) :(<>  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-10  ">
         {visibleServices.map(service => (
            
