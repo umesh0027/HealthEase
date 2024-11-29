@@ -25,8 +25,12 @@ const DoctorList = () => {
   return (
    <>
    <NavBar/>
-     <div className="h-full container w-full bg-blue-150">
-      <h2 className="text-3xl font-semibold mb-8 text-center p-4 text-white">Our Doctors</h2>
+     <div className="bg-blue-150 mx-auto min-h-screen">
+{/*       <h2 className="text-3xl font-semibold mb-8 text-center p-4 text-white">Our Doctors</h2> */}
+       <div className="bg-blue-150 text-white py-10 text-center">
+          <h2 className="text-4xl font-bold">Our Doctors</h2>
+          <p className="text-lg mt-2">Meet our experienced and dedicated specialists</p>
+        </div>
       {loading ? (
           <div className="flex justify-center items-center spinner ml-60 "></div>
       ) : (
