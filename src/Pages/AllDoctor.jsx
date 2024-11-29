@@ -32,7 +32,10 @@ const DoctorList = () => {
           <p className="text-lg mt-2">Meet our experienced and dedicated specialists</p>
         </div>
       {loading ? (
-          <div className="flex justify-center items-center spinner ml-60 "></div>
+          // <div className="flex justify-center items-center spinner ml-60 "></div>
+    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+        <div className="spinner"></div>
+      </div>
       ) : (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-10 p-4">
