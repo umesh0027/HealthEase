@@ -3,7 +3,7 @@ const Report = require('../models/Report');
 const Doctor = require('../models/doctor');
 const User = require("../models/User")
 const Patient = require("../models/patient");
-// const PDFDocument = require('pdfkit');
+const PDFDocument = require('pdfkit');
 
 exports.createReport = async (req, res) => {
     try {
@@ -134,30 +134,30 @@ exports.updateReport = async (req, res) => {
 
 
 // Controller function to handle report download
-exports.downloadReport = async (req, res) => {
-    try {
-      const report = await Report.findById(req.params.reportId);
+// exports.downloadReport = async (req, res) => {
+//     try {
+//       const report = await Report.findById(req.params.reportId);
   
-      if (!report) {
-        return res.status(404).json({ success: false, message: 'Report not found' });
-      }
+//       if (!report) {
+//         return res.status(404).json({ success: false, message: 'Report not found' });
+//       }
   
-      // Here you would typically fetch the report data from your database or file storage
-      // For demonstration purposes, let's assume the report data is stored as a string
-      const reportData = `Patient: ${report.patient}\nDoctor: ${report.doctor}\nDetails: ${report.details}\nDate: ${report.date}`;
+//       // Here you would typically fetch the report data from your database or file storage
+//       // For demonstration purposes, let's assume the report data is stored as a string
+//       const reportData = `Patient: ${report.patient}\nDoctor: ${report.doctor}\nDetails: ${report.details}\nDate: ${report.date}`;
   
-      // Set the response headers for file download
-      res.setHeader('Content-disposition', 'attachment; filename=report.txt');
-      res.setHeader('Content-type', 'application/pdf');
+//       // Set the response headers for file download
+//       res.setHeader('Content-disposition', 'attachment; filename=report.txt');
+//       res.setHeader('Content-type', 'application/pdf');
   
-      // Send the report data as the responseclear
+//       // Send the report data as the responseclear
 
-      res.send(reportData);
-    } catch (error) {
-      console.error('Error downloading report:', error);
-      res.status(500).json({ success: false, message: 'Internal Server Error' });
-    }
-  };
+//       res.send(reportData);
+//     } catch (error) {
+//       console.error('Error downloading report:', error);
+//       res.status(500).json({ success: false, message: 'Internal Server Error' });
+//     }
+//   };
 
 
 // exports.downloadReport = async (req, res) => {
@@ -204,105 +204,105 @@ exports.downloadReport = async (req, res) => {
 
 
 
-// exports.downloadReport = async (req, res) => {
-//   try {
-//     // Fetch the report and populate patient and doctor details
-//     const report = await Report.findById(req.params.reportId)
-//       .populate({
-//         path: "patient",
-//         populate: {
-//           path: "user",
-//           model: "User",
-//           populate: {
-//             path: "additionalDetails",
-//             model: "Profile",
-//           },
-//         },
-//       })
-//       .populate("doctor");
+exports.downloadReport = async (req, res) => {
+  try {
+    // Fetch the report and populate patient and doctor details
+    const report = await Report.findById(req.params.reportId)
+      .populate({
+        path: "patient",
+        populate: {
+          path: "user",
+          model: "User",
+          populate: {
+            path: "additionalDetails",
+            model: "Profile",
+          },
+        },
+      })
+      .populate("doctor");
 
-//     if (!report) {
-//       return res.status(404).json({ success: false, message: "Report not found" });
-//     }
+    if (!report) {
+      return res.status(404).json({ success: false, message: "Report not found" });
+    }
 
-//     // Extract necessary information from the populated data
-//     const { patient, doctor, details, date } = report;
+    // Extract necessary information from the populated data
+    const { patient, doctor, details, date } = report;
 
-//     // Patient Information
-//     const patientUser = patient?.user;
-//     const doctorUser = patient?.user;
-//     const patientProfile = patientUser?.additionalDetails;
+    // Patient Information
+    const patientUser = patient?.user;
+    const doctorUser = patient?.user;
+    const patientProfile = patientUser?.additionalDetails;
 
-//     const patientName = `${patientUser?.firstName || "N/A"} ${patientUser?.lastName || "N/A"}`;
-//     const patientAge = patientProfile?.Age || "N/A";
-//     const patientGender = patientProfile?.gender || "N/A";
-//     const patientContact = patientProfile?.contactNumber || "N/A";
-//     const patientBloodGroup = patientProfile?.BloodGroup || "N/A";
+    const patientName = `${patientUser?.firstName || "N/A"} ${patientUser?.lastName || "N/A"}`;
+    const patientAge = patientProfile?.Age || "N/A";
+    const patientGender = patientProfile?.gender || "N/A";
+    const patientContact = patientProfile?.contactNumber || "N/A";
+    const patientBloodGroup = patientProfile?.BloodGroup || "N/A";
 
-//     // Doctor Information
-//     const doctorName = doctor ? `${doctorUser.firstName || "N/A"} ${doctorUser.lastName || "N/A"}` : "N/A";
-//     const doctorSpecialization = doctor?.specialization || "N/A";
+    // Doctor Information
+    const doctorName = doctor ? `${doctorUser.firstName || "N/A"} ${doctorUser.lastName || "N/A"}` : "N/A";
+    const doctorSpecialization = doctor?.specialization || "N/A";
 
-//     // Update this path to the actual logo file
+    // Update this path to the actual logo file
 
-//     // Create a new PDF document
-//     const doc = new PDFDocument();
+    // Create a new PDF document
+    const doc = new PDFDocument();
 
-//     // Set the response headers for file download
-//     res.setHeader("Content-disposition", "attachment; filename=report.pdf");
-//     res.setHeader("Content-type", "application/pdf");
+    // Set the response headers for file download
+    res.setHeader("Content-disposition", "attachment; filename=report.pdf");
+    res.setHeader("Content-type", "application/pdf");
 
-//     // Pipe the PDF to the response
-//     doc.pipe(res);
+    // Pipe the PDF to the response
+    doc.pipe(res);
 
    
 
-//     // Add content to the PDF
-//     doc
-//       .fontSize(20)
-//       .text("Health Ease Report", { align: "center" })
-//       .moveDown();
+    // Add content to the PDF
+    doc
+      .fontSize(20)
+      .text("Health Ease Report", { align: "center" })
+      .moveDown();
 
-//     // Patient Details
-//     doc
-//       .fontSize(14)
-//       .text("Patient Details:", { underline: true })
-//       .moveDown()
-//       .fontSize(12)
-//       .text(`Name: ${patientName}`)
-//       .text(`Age: ${patientAge}`)
-//       .text(`Gender: ${patientGender}`)
-//       .text(`Contact: ${patientContact}`)
-//       .text(`Blood Group: ${patientBloodGroup}`)
-//       .moveDown();
+    // Patient Details
+    doc
+      .fontSize(14)
+      .text("Patient Details:", { underline: true })
+      .moveDown()
+      .fontSize(12)
+      .text(`Name: ${patientName}`)
+      .text(`Age: ${patientAge}`)
+      .text(`Gender: ${patientGender}`)
+      .text(`Contact: ${patientContact}`)
+      .text(`Blood Group: ${patientBloodGroup}`)
+      .moveDown();
 
-//     // Doctor Details
-//     doc
-//       .fontSize(14)
-//       .text("Doctor Details:", { underline: true })
-//       .moveDown()
-//       .fontSize(12)
-//       .text(`Name: ${doctorName}`)
-//       .text(`Specialization: ${doctorSpecialization}`)
-//       .moveDown();
+    // Doctor Details
+    doc
+      .fontSize(14)
+      .text("Doctor Details:", { underline: true })
+      .moveDown()
+      .fontSize(12)
+      .text(`Name: ${doctorName}`)
+      .text(`Specialization: ${doctorSpecialization}`)
+      .moveDown();
 
-//     // Report Details
-//     doc
-//       .fontSize(14)
-//       .text("Report Details:", { underline: true })
-//       .moveDown()
-//       .fontSize(12)
-//       .text(`Date: ${new Date(date).toLocaleDateString()}`)
-//       .text(`Details: ${details || "N/A"}`)
-//       .moveDown();
+    // Report Details
+    doc
+      .fontSize(14)
+      .text("Report Details:", { underline: true })
+      .moveDown()
+      .fontSize(12)
+      .text(`Date: ${new Date(date).toLocaleDateString()}`)
+      .text(`Details: ${details || "N/A"}`)
+      .moveDown();
 
-//     // Finalize the PDF and end the stream
-//     doc.end();
-//   } catch (error) {
-//     console.error("Error downloading report:", error);
-//     res.status(500).json({ success: false, message: "Internal Server Error" });
-//   }
-// };
+    // Finalize the PDF and end the stream
+    doc.end();
+  } catch (error) {
+    console.error("Error downloading report:", error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
 
 
 
