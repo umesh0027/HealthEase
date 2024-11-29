@@ -47,7 +47,10 @@ const Home = () => {
 <div className='bg-blue-250 w-full h-[600px] px-4 '>
   <h1 className='text-center py-6 text-4xl font-semibold text-richblack-700'> News & Events</h1>
   {loading ? (
-        <div className="spinner items-center"></div>
+        // <div className="spinner items-center"></div>
+    <div className="grid place-items-center">
+     <div className="spinner"></div>
+   </div>
       ) : ( <NewsListPage/>)
   }
 </div>
