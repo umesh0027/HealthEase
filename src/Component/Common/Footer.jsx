@@ -38,6 +38,9 @@ const Footer = () => {
             <li className="mx-4 my-2">
               <Link to="/disease" className="text-white hover:text-pink-500">Disease Predictor</Link>
             </li>
+             <li className="mx-4 my-2">
+              <Link to="/terms" className="text-white hover:text-pink-500">Terms & Condition</Link>
+            </li>
           </ul>
         </div>
       </div>
