@@ -33,7 +33,7 @@ const DoctorList = () => {
         </div>
       {loading ? (
           // <div className="flex justify-center items-center spinner ml-60 "></div>
-    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+    <div className="grid  place-items-center">
         <div className="spinner"></div>
       </div>
       ) : (
