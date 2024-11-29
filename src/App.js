@@ -62,6 +62,8 @@ import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import Navs from './Component/HomeComponent/Nav';
 import DoctorDashboardProfile from './Component/core/Dashboard/Doctor/DoctorDashboard';
+import TermsAndConditions from './Pages/TermsANDCondition';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
 const diseases = [
   {
     id: 1,
@@ -165,6 +167,8 @@ function App() {
       <Route path="/services" element={<ServicePage />} />
       <Route path="/service/:id" element={<ServiceDetailsPage />} />
       <Route path="/doctors" element={<DoctorList/>} />
+ <Route path="/terms" element={<TermsAndConditions/>} />
+      <Route path="/privacy" element={<PrivacyPolicy/>} />
 
  {/* Open Route - for Only Non Logged in User */}
  <Route
