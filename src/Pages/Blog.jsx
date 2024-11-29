@@ -52,7 +52,7 @@ const BlogList = () => {
   return (
     <>
       <NavBar />
-      <div className="flex flex-col md:flex-row container h-full">
+      <div className="flex flex-col md:flex-row  h-full">
         <div className="w-full md:w-1/4 bg-richblack-700">
           {/* Category buttons */}
           <div className="container mx-auto py-8">
