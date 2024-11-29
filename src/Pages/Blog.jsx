@@ -78,7 +78,7 @@ const BlogList = () => {
             // <div className="flex justify-center items-center h-full">
             //   <div className="spinner-border animate-spin h-16 w-16 border-4 border-blue-500 border-t-transparent rounded-full"></div>
             // </div>
-            <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+            <div className="grid  place-items-center">
             <div className="spinner"></div>
           </div>
           ) : (
