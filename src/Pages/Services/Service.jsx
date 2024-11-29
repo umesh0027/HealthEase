@@ -44,7 +44,7 @@ const {  loading } = useSelector((state) => state.doctors);
    
    
   
-     <div className="container h-full w-full bg-blue-250  " >
+     <div className=" h-full w-full bg-blue-250  " >
      <h2 className="text-2xl font-bold  text-center py-10 ">Our Services</h2>
  {loading ? (
         // <div className="spinner"></div>
