@@ -21,7 +21,7 @@ const About = () => {
       <div className={`${styles.para}`}>
        
       <TypeAnimation
-            sequence={[`Welcome to Health Ease Hospital, where your health is our top priority. Founded in 2020, WeCare has been providing exceptional healthcare services to our community for over  three years.`, 500, ""]}
+            sequence={[`Welcome to Health Ease Hospital, where your health is our top priority. Founded in 2020, Health Ease has been providing exceptional healthcare services to our community for over  three years.`, 500, ""]}
             cursor={true}
             repeat={Infinity}
             style={{
@@ -38,15 +38,15 @@ const About = () => {
       <div className={`${styles['About-container-left']} p-4 lg:p-10 md:px-6`}><img src={imageleft} alt="" /></div>
       <div className={`${styles['About-container-right']} p-4 lg:p-10 md:px-6`}>
         <h2 className='text-center'>About Us</h2>
-       <p>Welcome to Health Ease Hospital, where your health is our top priority. Founded in 2020, WeCare has been providing exceptional healthcare services to our community for over  three years.</p>
+       <p>Welcome to Health Ease Hospital, where your health is our top priority. Founded in 2020, Health Ease has been providing exceptional healthcare services to our community for over  three years.</p>
 
-<p>At WeCare, we believe in a patient-centric approach, ensuring that each individual receives personalized care and attention. Our team of experienced and dedicated healthcare professionals is committed to delivering high-quality medical services, using the latest technology and innovative treatments.</p>
+<p>At Health Ease, we believe in a patient-centric approach, ensuring that each individual receives personalized care and attention. Our team of experienced and dedicated healthcare professionals is committed to delivering high-quality medical services, using the latest technology and innovative treatments.</p>
 
-<p>We offer a wide range of medical specialties, ensuring that we can meet the diverse healthcare needs of our patients. Whether you require routine medical care or specialized treatment, you can trust WeCare to provide compassionate and effective care.</p>
+<p>We offer a wide range of medical specialties, ensuring that we can meet the diverse healthcare needs of our patients. Whether you require routine medical care or specialized treatment, you can trust Health Ease to provide compassionate and effective care.</p>
 
-<p>Our state-of-the-art facilities are designed to create a comfortable and welcoming environment for our patients. From our modern patient rooms to our advanced medical equipment, we strive to ensure that your experience at WeCare is both pleasant and effective.</p>
+<p>Our state-of-the-art facilities are designed to create a comfortable and welcoming environment for our patients. From our modern patient rooms to our advanced medical equipment, we strive to ensure that your experience at Health Ease is both pleasant and effective.</p>
 
-<p>At WeCare, we are more than just a hospital – we are a healthcare partner dedicated to helping you live a healthier life. We look forward to serving you and your family and being a part of your healthcare journey.</p>
+<p>At Health Ease, we are more than just a hospital – we are a healthcare partner dedicated to helping you live a healthier life. We look forward to serving you and your family and being a part of your healthcare journey.</p>
 
       </div>
     </div>
