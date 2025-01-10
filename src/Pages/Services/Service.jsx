@@ -9,9 +9,10 @@ const ServicePage = () => {
   const [services, setServices] = useState([]);
   const[readmore , setReadmore]=useState(false);
   const [showAll, setShowAll] = useState(false);
+   const [loading, setLoading] = useState(true);
   const initialCardLimit = 6;
 
-const {  loading } = useSelector((state) => state.doctors);
+// const {  loading } = useSelector((state) => state.doctors);
   function readmoreHandler(){
       setReadmore(!readmore);
   }
@@ -25,6 +26,9 @@ const {  loading } = useSelector((state) => state.doctors);
       setServices(response.data);
     } catch (error) {
       console.error('Error fetching services:', error);
+    }
+     finally {
+      setLoading(false); 
     }
   };
   const handleShowAll = () => {
@@ -44,7 +48,7 @@ const {  loading } = useSelector((state) => state.doctors);
    
    
   
-     <div className=" h-full w-full bg-blue-250  " >
+     <div className=" min-h-screen w-full bg-blue-250  " >
      <h2 className="text-2xl font-bold  text-center py-10 ">Our Services</h2>
  {loading ? (
         // <div className="spinner"></div>
