@@ -39,7 +39,7 @@ const Gallery = () => {
 
   return (
     <div className='bg-blue-250 h-full '>
-      <h1 className='text-center text-4xl p-4'> Our Gallery</h1>
+      <h1 className='text-center text-4xl font-semibold p-4'> Our Gallery</h1>
       <div className='mt-6  flex flex-wrap justify-center'>
         {gallery.map((item, index) => (
           <div className='relative mb-8' key={index}>
