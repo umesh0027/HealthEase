@@ -46,7 +46,7 @@ const BlogDetails = () => {
    <>
    <NavBar/>
    <div className="bg-richblack-800 h-auto p-10 ">
-   <h1 className='text-white p-4 text-center text-3xl text-bold'>{blog.categories}</h1>
+   <h1 className='text-white p-4 text-center text-3xl font-semibold'>{blog.categories}</h1>
       <div className=" md:flex flex-col md:mx-10  lg:mx-20 items-center justify-center   ">
 
         <div className='w-full mb-10'>
@@ -56,8 +56,8 @@ const BlogDetails = () => {
         <div className=" px-2 text-richblack-5 border border-white">
         
           <h1 className="text-3xl font-bold mb-4 mt-6 text-center">{blog.title}</h1>
-          <p className="text-gray-600 mb-2 text-center px-4 text-justify">{blog.description}</p>
-          <p className="text-gray-600 mb-2 mt-6 text-center px-4 text-justify">{blog.content}</p>
+          <p className="text-gray-600 mb-2 text-left">{blog.description}</p>
+          <p className="text-gray-600 mb-2 mt-6 text-left">{blog.content}</p>
           {/* Render other details of the blog post */}
         </div>
       </div>
