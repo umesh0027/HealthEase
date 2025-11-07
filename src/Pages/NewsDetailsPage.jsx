@@ -47,9 +47,9 @@ const NewsDetailsPage = () => {
       </div>
       <div className='lg:w-[50%] text-center '>
       <h1 className="text-3xl font-bold mb-4 mt-6"> {eventDetails.title} </h1>
-        <p className="text-gray-600 mb-2 text-center px-4 text-justify">{eventDetails.description}</p>
-        <p className="text-gray-600 mb-2 mt-20 text-xl text-white">Event Date: { formattedDate (eventDetails.date)}</p>
-        <p className="text-gray-600 mb-2 text-xl text-white">Event Location: {eventDetails.location}</p>
+        <p className="text-gray-600 mb-2 text-left">{eventDetails.description}</p>
+        <p className="text-gray-600 mb-2 mt-6 text-xl text-white">Event Date: { formattedDate (eventDetails.date)}</p>
+        <p className="text-gray-600  text-xl text-white">Event Location: {eventDetails.location}</p>
       </div>
     </div>
      </div>
