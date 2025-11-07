@@ -35,16 +35,16 @@ const ServiceDetailsPage = () => {
         <div key={service.id}>
         <div className='bg-blue-150 h-auto pt-16  md:flex flex-col '>
      <div className=''>
-         <div className=" lg:flex flex-row mx-10  ">
+         <div className=" lg:flex flex-row lg:mx-10 mx-4 ">
       
       <div className=' md:w-[100%] lg:w-[50%] lg:mr-10 mb-10 '>
         <img src={service.imageUrl} alt="service" className="w-auto object-center rounded-xl " />
       </div>
-      <div className='lg:w-[50%]  mb-10  px-2 text-richblack-5 '>
+      <div className='lg:w-[50%]  px-2 text-richblack-5 '>
       <h1 className="text-3xl font-bold mb-4 mt-6 text-center">{"About"} {service.name} {"Service"}</h1>
-        <p className="text-gray-600 mb-2 text-center px-4 text-justify">{service.description}</p>
-        <p className="text-richblack-600 mb-2 mt-6 text-center px-4 text-justify"><span className='text-lg text-richblack-900'>Service: </span> { service.content}</p>
-        <p className="text-richblack-600 mb-2 mt-6 text-center px-4 text-justify"><span className='text-lg text-richblack-900'>Department: </span> { service.department}</p>
+        <p className="text-gray-600  text-left">{service.description}</p>
+        <p className="text-richblack-600  mt-6 text-left  "><span className='text-lg font-semibold text-richblack-900'>Service: </span> { service.content}</p>
+        <p className="text-richblack-600 py-4  text-left  "><span className='text-lg font-semibold text-richblack-900'>Department: </span> { service.department}</p>
      
       </div>
     </div>
