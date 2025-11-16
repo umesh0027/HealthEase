@@ -61,74 +61,149 @@ exports.getAvailableTimeSlots = async (req, res) => {
 };
 
 // Controller to book an appointment
+// exports.bookAppointment = async (req, res) => {
+//   try {
+//     const {doctorId, date, time, description } = req.body;
+//     const patient = await Patient.findOne({ user: req.user.id });
+
+// if (!patient) {
+//     return res.status(404).json({ success: false, message: 'Patient not found' });
+// }
+
+// const patientId = patient._id;
+//     if ( !doctorId || !date || !time || !description) {
+//       return res.status(400).json({ success: false, message: 'All fields are required for booking the appointment' });
+//     }
+
+//       // Check if the selected time slot is available
+//       const existingAppointment = await Appointment.findOne({ doctor: doctorId, AppointmentDate: date, AppointmentTime: time });
+//       if (existingAppointment) {
+//           return res.status(400).json({ success: false, message: 'Selected time slot is not available' });
+//       }
+//       // Create a new appointment
+//       const newAppointment = new Appointment({
+//           patient: patientId,
+//           doctor: doctorId,
+//           AppointmentDate: date,
+//           AppointmentTime: time,
+//           description,
+//           paymentStatus: 'Pending',
+//           status: 'Pending' // Set appointment status to 'Pending'
+          
+//       });
+//       await newAppointment.save();
+
+//       // Send confirmation email to the patient
+//       const patients = await Patient.findById(patientId).populate('user'); 
+//     const selectedDoctor = await Doctor.findById(doctorId).populate('user');
+//     const patientEmailTitle = 'Appointment Confirmation';
+//     const patientEmailBody = `Your appointment has been successfully booked with ${selectedDoctor.user.firstName} ${selectedDoctor.user.lastName} on ${date} at ${time}.`;
+//     // await mailSender(patients.user.email, patientEmailTitle, patientEmailBody);
+
+//         mailSender(patients.user.email, patientEmailTitle, patientEmailBody)
+//   .catch(err => console.error("Patient Email error:", err));
+
+    
+//     // await newAppointment.save();
+
+//     // Notify the doctor about the confirmed appointment
+//     const doctorEmail = selectedDoctor.user.email;
+//     const doctorEmailTitle = 'Appointment Confirmed';
+//     const doctorEmailBody = `Your appointment with patient ${patients.user.firstName} ${patients.user.lastName} on ${date} at ${time} has been confirmed.`;
+//     // await mailSender(doctorEmail, doctorEmailTitle, doctorEmailBody);
+
+//     // Send email to doctor (NO AWAIT)
+// mailSender(doctorEmail, doctorEmailTitle, doctorEmailBody)
+//   .catch(err => console.error("Doctor Email error:", err));
+
+//         // Log appointment details
+//     console.log(`Appointment booked for Doctor ID: ${doctorId}, Patient ID: ${patientId}`);
+//     console.log('Appointment Details:', newAppointment);
+      
+        
+//           console.log(`Appointment booked for ${selectedDoctor.user.firstName} ${selectedDoctor.user.lastName}`);
+//           console.log('Appointment Details:', newAppointment);
+     
+     
+//    res.status(201).json({ success: true, message: 'Appointment booked successfully', appointmentId: newAppointment._id });
+//   } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ success: false, message: 'Internal Server Error' });
+//   }
+// };
+
+
 exports.bookAppointment = async (req, res) => {
   try {
     const {doctorId, date, time, description } = req.body;
     const patient = await Patient.findOne({ user: req.user.id });
 
-if (!patient) {
-    return res.status(404).json({ success: false, message: 'Patient not found' });
-}
-
-const patientId = patient._id;
-    if ( !doctorId || !date || !time || !description) {
-      return res.status(400).json({ success: false, message: 'All fields are required for booking the appointment' });
+    if (!patient) {
+      return res.status(404).json({ success: false, message: 'Patient not found' });
     }
 
-      // Check if the selected time slot is available
-      const existingAppointment = await Appointment.findOne({ doctor: doctorId, AppointmentDate: date, AppointmentTime: time });
-      if (existingAppointment) {
-          return res.status(400).json({ success: false, message: 'Selected time slot is not available' });
-      }
-      // Create a new appointment
-      const newAppointment = new Appointment({
-          patient: patientId,
-          doctor: doctorId,
-          AppointmentDate: date,
-          AppointmentTime: time,
-          description,
-          paymentStatus: 'Pending',
-          status: 'Pending' // Set appointment status to 'Pending'
-          
-      });
-      await newAppointment.save();
+    const patientId = patient._id;
 
-      // Send confirmation email to the patient
-      const patients = await Patient.findById(patientId).populate('user'); 
+    if (!doctorId || !date || !time || !description) {
+      return res.status(400).json({ success: false, message: 'All fields are required' });
+    }
+
+    // Check if slot available
+    const existingAppointment = await Appointment.findOne({
+      doctor: doctorId,
+      AppointmentDate: date,
+      AppointmentTime: time
+    });
+
+    if (existingAppointment) {
+      return res.status(400).json({ success: false, message: 'Selected time slot is not available' });
+    }
+
+    // Create appointment
+    const newAppointment = new Appointment({
+      patient: patientId,
+      doctor: doctorId,
+      AppointmentDate: date,
+      AppointmentTime: time,
+      description,
+      paymentStatus: 'Pending',
+      status: 'Pending'
+    });
+
+    await newAppointment.save();
+
+    // Fetch doctor + patient
+    const patients = await Patient.findById(patientId).populate('user');
     const selectedDoctor = await Doctor.findById(doctorId).populate('user');
+
     const patientEmailTitle = 'Appointment Confirmation';
     const patientEmailBody = `Your appointment has been successfully booked with ${selectedDoctor.user.firstName} ${selectedDoctor.user.lastName} on ${date} at ${time}.`;
-    // await mailSender(patients.user.email, patientEmailTitle, patientEmailBody);
 
-        mailSender(patients.user.email, patientEmailTitle, patientEmailBody)
-  .catch(err => console.error("Patient Email error:", err));
-
-    
-    // await newAppointment.save();
-
-    // Notify the doctor about the confirmed appointment
     const doctorEmail = selectedDoctor.user.email;
     const doctorEmailTitle = 'Appointment Confirmed';
     const doctorEmailBody = `Your appointment with patient ${patients.user.firstName} ${patients.user.lastName} on ${date} at ${time} has been confirmed.`;
-    // await mailSender(doctorEmail, doctorEmailTitle, doctorEmailBody);
 
-    // Send email to doctor (NO AWAIT)
-mailSender(doctorEmail, doctorEmailTitle, doctorEmailBody)
-  .catch(err => console.error("Doctor Email error:", err));
 
-        // Log appointment details
-    console.log(`Appointment booked for Doctor ID: ${doctorId}, Patient ID: ${patientId}`);
-    console.log('Appointment Details:', newAppointment);
-      
-        
-          console.log(`Appointment booked for ${selectedDoctor.user.firstName} ${selectedDoctor.user.lastName}`);
-          console.log('Appointment Details:', newAppointment);
-     
-     
-   res.status(201).json({ success: true, message: 'Appointment booked successfully', appointmentId: newAppointment._id });
+    // ⭐ SEND EMAILS IN BACKGROUND (fastest solution)
+    setImmediate(() => {
+      mailSender(patients.user.email, patientEmailTitle, patientEmailBody)
+        .catch(err => console.error("Patient Email error:", err));
+
+      mailSender(doctorEmail, doctorEmailTitle, doctorEmailBody)
+        .catch(err => console.error("Doctor Email error:", err));
+    });
+
+
+    // Return response immediately
+    res.status(201).json({
+      success: true,
+      message: 'Appointment booked successfully',
+      appointmentId: newAppointment._id
+    });
+
   } catch (error) {
-      console.error(error);
-      res.status(500).json({ success: false, message: 'Internal Server Error' });
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 };
 
