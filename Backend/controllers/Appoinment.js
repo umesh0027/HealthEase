@@ -98,16 +98,23 @@ const patientId = patient._id;
     const selectedDoctor = await Doctor.findById(doctorId).populate('user');
     const patientEmailTitle = 'Appointment Confirmation';
     const patientEmailBody = `Your appointment has been successfully booked with ${selectedDoctor.user.firstName} ${selectedDoctor.user.lastName} on ${date} at ${time}.`;
-    await mailSender(patients.user.email, patientEmailTitle, patientEmailBody);
+    // await mailSender(patients.user.email, patientEmailTitle, patientEmailBody);
+
+        mailSender(patients.user.email, patientEmailTitle, patientEmailBody)
+  .catch(err => console.error("Patient Email error:", err));
 
     
-    await newAppointment.save();
+    // await newAppointment.save();
 
     // Notify the doctor about the confirmed appointment
     const doctorEmail = selectedDoctor.user.email;
     const doctorEmailTitle = 'Appointment Confirmed';
     const doctorEmailBody = `Your appointment with patient ${patients.user.firstName} ${patients.user.lastName} on ${date} at ${time} has been confirmed.`;
-    await mailSender(doctorEmail, doctorEmailTitle, doctorEmailBody);
+    // await mailSender(doctorEmail, doctorEmailTitle, doctorEmailBody);
+
+    // Send email to doctor (NO AWAIT)
+mailSender(doctorEmail, doctorEmailTitle, doctorEmailBody)
+  .catch(err => console.error("Doctor Email error:", err));
 
         // Log appointment details
     console.log(`Appointment booked for Doctor ID: ${doctorId}, Patient ID: ${patientId}`);
