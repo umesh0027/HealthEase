@@ -78,9 +78,22 @@ const Appointments = () => {
             // Capture payment on successful transaction
             const captureResponse = await axios.post(`${process.env.REACT_APP_BASE_URL}/payments/capture-payment`, { appointmentId:appointmentId, razorpay_payment_id: response.razorpay_payment_id });
             if (captureResponse.data.success) {
+
+               // RESET FORM AFTER PAYMENT
+      // ----------------------------
+      setDisease('');
+      setSelectedDoctor('');
+      setDate('');
+      setTimeSlots([]);
+      setSelectedTime('');
+      setDescription('');
+      setAppointmentId('');
+      setPaymentStatus('Paid');
+
+      toast.success('Your payment is successful. Appointment confirmed!');
               // Update appointment status to 'Paid'
-              setPaymentStatus('Paid');
-              toast.success('your Payment successfully');
+              // setPaymentStatus('Paid');
+              // toast.success('your Payment successfully');
             } else {
               toast.error('your Payment  failed');
             }
@@ -141,16 +154,27 @@ const Appointments = () => {
         }
       });
        // Update payment status based on the response from the server
-       if (response.data.success) {
-        const { appointmentId } = response.data;
-        setAppointmentId(appointmentId);
-        console.log('Appointment booked successfully. Appointment ID:', appointmentId);
-        setPaymentStatus('Paid');
-        toast.success('Appointment booked successfully');
-      } else {
-        toast.error('Appointment booking failed');
-      }
+      //  if (response.data.success) {
+      //   const { appointmentId } = response.data;
+      //   setAppointmentId(appointmentId);
+      //   console.log('Appointment booked successfully. Appointment ID:', appointmentId);
+      //   setPaymentStatus('Paid');
+      //   toast.success('Appointment booked successfully');
+      // } else {
+      //   toast.error('Appointment booking failed');
+      // }
       // toast.success('Appointment booked successfully');
+
+      if (response.data.success) {
+  const { appointmentId } = response.data;
+  setAppointmentId(appointmentId);
+  setPaymentStatus('Pending');  // Payment abhi pending hoga
+
+  toast.success('Your appointment is booked. Now complete your payment for successful appointment.');
+} else {
+  toast.error('Appointment booking failed');
+}
+
     } catch (error) {
       console.error('Error booking appointment:', error);
       toast.error('Available Time slot is not Available. Please select another time');
