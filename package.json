@@ -1,11 +1,7 @@
-
 {
   "name": "hpms",
   "version": "0.1.0",
   "private": true,
-   "engines": {
-    "node": "18.x"
-  },
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
@@ -71,36 +67,21 @@
   },
   "scripts": {
     "start": "react-scripts start",
-     "build": "CI=false react-scripts build",
+    "build": "CI=false react-scripts build",
     "server": "cd Backend && npm run dev",
     "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"npm run server\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-   
   },
- "eslintConfig": {
-  "extends": ["react-app", "react-app/jest"],
-  "rules": {
-    "no-unused-vars": "warn",
-    "react-hooks/exhaustive-deps": "warn"
-  }
-}
-
+  "eslintConfig": {
+    "extends": ["react-app", "react-app/jest"]
+  },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   },
-  
   "devDependencies": {
-      "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "tailwindcss": "^3.4.1"
   }
 }
