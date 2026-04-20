@@ -37,7 +37,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
 	cors({
-		origin: "*",
+		origin: "https://health-ease-eight.vercel.app",
 		credentials: true,
 	})
 );
