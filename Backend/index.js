@@ -41,11 +41,18 @@ app.use(
 		credentials: true,
 	})
 );
+// app.use(
+// 	fileUpload({
+// 		useTempFiles: true,
+// 		tempFileDir: "/tmp/",
+// 	})
+// );
+
+// ✅ Naya
 app.use(
-	fileUpload({
-		useTempFiles: true,
-		tempFileDir: "/tmp/",
-	})
+  fileUpload({
+    useTempFiles: false,
+  })
 );
 
 // Connecting to cloudinary
@@ -351,3 +358,6 @@ app.post("/predict", (req, res) => {
 app.listen(PORT, () => {
 	console.log(`App is listening at ${PORT}`);
 });
+
+
+module.exports = app;
