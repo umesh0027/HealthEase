@@ -41,19 +41,19 @@ app.use(
 		credentials: true,
 	})
 );
-// app.use(
-// 	fileUpload({
-// 		useTempFiles: true,
-// 		tempFileDir: "/tmp/",
-// 	})
-// );
+app.use(
+	fileUpload({
+		useTempFiles: true,
+		tempFileDir: "/tmp/",
+	})
+);
 
 // ✅ Naya
-app.use(
-  fileUpload({
-    useTempFiles: false,
-  })
-);
+// app.use(
+//   fileUpload({
+//     useTempFiles: false,
+//   })
+// );
 
 // Connecting to cloudinary
 cloudinaryConnect();
